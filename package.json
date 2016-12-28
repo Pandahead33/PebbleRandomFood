@@ -1,0 +1,21 @@
+{
+    "author": "igetspammed1234@gmail.com",
+    "dependencies": {},
+    "keywords": [],
+    "name": "i-m-sick-of-food",
+    "pebble": {
+        "displayName": "I'm Sick of Food",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": []
+        },
+        "sdkVersion": "3",
+        "uuid": "5ad5b402-281f-43fc-b368-e3a99e2c573f",
+        "watchapp": {
+            "watchface": false
+        }
+    },
+    "version": "1.0.0"
+}
