@@ -1,8 +1,8 @@
 {
-    "author": "igetspammed1234@gmail.com",
+    "author": "Lucas Puskaric",
     "dependencies": {},
     "keywords": [],
-    "name": "i-m-sick-of-food",
+    "name": "sick-of-food",
     "pebble": {
         "displayName": "I'm Sick of Food",
         "enableMultiJS": true,
@@ -12,6 +12,11 @@
             "media": []
         },
         "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt",
+            "chalk"
+        ],
         "uuid": "5ad5b402-281f-43fc-b368-e3a99e2c573f",
         "watchapp": {
             "watchface": false

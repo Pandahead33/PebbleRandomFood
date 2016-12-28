@@ -36,8 +36,8 @@ static void init(void) {
   window_set_background_color(s_window, GColorRajah);
 	
   // Create a text layer and set the text
-	s_text_layer = text_layer_create(bounds);
-  text_layer_set_size(s_text_layer, GSize(200, 100));
+	s_text_layer = text_layer_create(GRect(0, 0, bounds.size.w, bounds.size.h));
+  text_layer_set_size(s_text_layer, GSize(bounds.size.w, 150));
   
   // Generate random number
   srand(time(NULL));
@@ -52,8 +52,14 @@ static void init(void) {
 	text_layer_set_font(s_text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD));
 	text_layer_set_text_alignment(s_text_layer, GTextAlignmentCenter);
   
-  // Create a text layer and set the text
-	s_logo_layer = text_layer_create(GRect(0, 100, 145, 100));
+  // Vertically align the text in the text layer
+  GRect frame = layer_get_frame(text_layer_get_layer(s_text_layer));
+  GSize content_size = text_layer_get_content_size(s_text_layer);
+  layer_set_frame(text_layer_get_layer(s_text_layer), GRect(frame.origin.x, frame.origin.y + (frame.size.h - content_size.h) / 2, frame.size.w, content_size.h + 10));
+ 
+  
+  // New layer for the "logo" which is just the app name
+	s_logo_layer = text_layer_create(GRect(bounds.origin.x, (frame.origin.y + (frame.size.h - content_size.h) / 2) + content_size.h + 15 , bounds.size.w, bounds.size.h));
   
   //Display the output and make it pretty
   text_layer_set_background_color(s_logo_layer, GColorClear);
@@ -63,6 +69,9 @@ static void init(void) {
   // Set the font and text alignment
 	text_layer_set_font(s_logo_layer, fonts_get_system_font(FONT_KEY_GOTHIC_24_BOLD));
 	text_layer_set_text_alignment(s_logo_layer, GTextAlignmentCenter); 
+  
+  
+  
   
 	// Add the text layer to the window
 	layer_add_child(window_get_root_layer(s_window), text_layer_get_layer(s_text_layer));
@@ -91,3 +100,5 @@ int main(void) {
 	app_event_loop();
 	deinit();
 }
+
+
